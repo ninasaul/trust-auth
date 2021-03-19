@@ -1,0 +1,22 @@
+{
+  "name": "react-simple-oauth2-login-example",
+  "version": "0.1.5",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "parcel build index.html --public-url=./",
+    "start": "parcel index.html --port 3000"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@babel/core": "^7.12.3",
+    "parcel-bundler": "^1.12.4"
+  },
+  "dependencies": {
+    "base-64": "^1.0.0",
+    "react": "^17.0.1",
+    "react-dom": "^17.0.1"
+  }
+}
