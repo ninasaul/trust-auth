@@ -1,25 +1,27 @@
-let base64 = require('base-64');
-import React, { useState } from 'react';
-import OAuth2Login from '../../../src/OAuth2Login';
-// import ErrorAlert from './ErrorAlert';
+// let base64 = require('base-64')
+import React, { useState } from 'react'
+import base64 from 'base-64'
+import OAuth2Login from '../../../../../src/OAuth2Login'
+import ErrorAlert from './ErrorAlert'
+import useLocalStorage from '../../hooks/useLocalStorage'
+
 import {
   authorizationUrl,
   clientId,
   clientSecret,
   redirectUri,
   serverUrl
-} from './settings-code';
+} from '../../settings-code'
 
 export default function AuthorizationCodeExample() {
   const [accessToken, setAccessToken] = useState(null);
   const [error, setError] = useState(null);
   const [groups, setGroups] = useState(null);
-
   const onSuccess = ({ code }) => fetch(`${serverUrl}/token`, {
       method: 'POST',
       headers: { 
           'Content-Type': 'application/x-www-form-urlencoded',
-          'Authorization': 'Basic ' + base64.encode(clientId + ":" + clientSecret)
+          'Authorization': 'Basic ' + base64.encode(`${clientId}:${clientSecret}`)
       },
       body: (new URLSearchParams({
         'grant_type': 'authorization_code',
@@ -37,9 +39,9 @@ export default function AuthorizationCodeExample() {
 
   return (
     <div className="column">
-      {/* {
+      {
         error && <ErrorAlert error={error} />
-      } */}
+      }
       <OAuth2Login
         authorizationUrl={authorizationUrl}
         clientId={clientId}

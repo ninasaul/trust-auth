@@ -8,7 +8,7 @@ module.exports = {
   ],
   output: {
     path: path.join(__dirname, 'dist'),
-    filename: 'OAuth2Login.js',
+    filename: 'OAuth2Login.jsx',
     libraryTarget: 'umd',
     library: 'OAuth2Login',
   },
