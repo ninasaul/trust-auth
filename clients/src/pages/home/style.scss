@@ -152,12 +152,17 @@ html{
   }
   &-list{
     border-radius:5px;
+    border: 1px solid #f4f4f4;
     overflow: hidden;
   }
   &-item{
     padding:15px 10px;
     background: #fff;
     border-bottom:1px solid #f4f4f4;
+    cursor: pointer;
+    &:hover{
+      background: #fafafa;
+    }
   }
 }
 .create{

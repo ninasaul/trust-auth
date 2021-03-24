@@ -21,8 +21,8 @@ export default function Home() {
         </h2>
         <div className="t-head-container">Conetent Aggregator</div>
         <div className="user">
-          Admmin
-          <i className="ico ico-meh" />
+          Admmin Name
+          <i className="ico ico-user" />
         </div>
       </div>
       <div className="t-container">
