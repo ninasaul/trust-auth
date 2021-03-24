@@ -101,7 +101,7 @@ html{
   }
   &-content{
     flex:1;
-    margin-left: 10px;
+    margin:0 30px 30px;
   }
   &-side{
     padding:10px;
@@ -160,6 +160,9 @@ html{
     background: #fff;
     border-bottom:1px solid #f4f4f4;
     cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
     &:hover{
       background: #fafafa;
     }
@@ -218,7 +221,8 @@ html{
   list-style: none;
 }
 .page{
-  margin:20px 0;
+  padding:20px;
+  background: #fff;
 }
 .rc-pagination::after {
   display: block;

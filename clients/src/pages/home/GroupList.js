@@ -7,6 +7,7 @@ import Loading from '../../compontent/Loading'
 export default function GroupList() {
   const [accessToken] = useLocalStorageState('accessToken')
   const {baseUrl} = useGlobal()
+  const [current, setCurrent] = useState(1)
   const {data, error, loading} = useRequest(
     `${baseUrl}/groups?accesstoken=${accessToken}`,
     {
@@ -23,11 +24,6 @@ export default function GroupList() {
     },
   )
 
-  const pageChange = e => {
-    console.log(e)
-  }
-
-  const [current, setCurrent] = useState(1)
   return (
     <div className="group">
       <h2 className="group-title">Service Providers</h2>
@@ -35,19 +31,27 @@ export default function GroupList() {
         <Loading style={{height: 300}} />
       ) : (
         <div className="group-list">
-          {data &&
-            data.map((item, index) => (
-              <div className="group-item" key={index}>
-                {item.name}
-              </div>
-            ))}
-          {data && (
+          {data.length &&
+            data
+              .filter(
+                (i, idx) => idx > (current - 1) * 10 && idx < current * 10,
+              )
+              .map((item, index) => (
+                <div className="group-item" key={index}>
+                  <div className="item">
+                    {item.name}
+                    <div style={{fontSize: 11, color: '#999'}}>{item.id}</div>
+                  </div>
+                  <div className="ico ico-chevron-right" />
+                </div>
+              ))}
+          {data.length && (
             <div className="page">
               <Pagination
                 defaultPageSize={10}
+                current={current}
                 onChange={setCurrent}
                 total={data.length}
-                locale="en"
               />
             </div>
           )}
