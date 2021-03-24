@@ -27,9 +27,9 @@ export default function GroupList() {
   }
   const [current, setCurrent] = useState(1)
   return (
-    <div>
+    <div className="group">
       <h2 className="group-title">Service Providers</h2>
-      <div>
+      <div className="group-list">
         {data &&
           data.map((item, index) => (
             <div className="group-item" key={index}>

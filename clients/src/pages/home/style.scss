@@ -3,12 +3,39 @@
   padding:0;
   box-sizing: border-box;
 }
+html{
+  background: #fafafa;
+  font-family: sans-serif;
+}
 .column{
   display: flex;
   align-items: center;
   justify-content: center;
   height: 100vh;
   flex-direction: column;
+  h2{
+    margin-bottom: 20px;
+    font-size: 18px;
+    padding:20px 0 50px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  .logo{
+    font-size: 44px;
+    margin-right: 10px;
+ 
+  }
+  .login{
+    background: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
 
 }
 .user{
@@ -28,14 +55,14 @@
   }
 }
 .auto-button{
-  width: 200px;
-  height: 40px;
   border-radius: 5px;
   background: #222;
   color: #fff;
   border: none;
   outline: none;
   cursor: pointer;
+  font-size: 16px;
+  padding:14px 26px;
   &:hover{
     background: #444;
   }
@@ -100,10 +127,14 @@
     padding: 20px 0;
     font-size: 16px;
   }
+  &-list{
+    border-radius:5px;
+    overflow: hidden;
+  }
   &-item{
-    padding: 10px;
+    padding:15px 10px;
     background: #fff;
-    border-bottom:1px solid #eee
+    border-bottom:1px solid #f4f4f4;
   }
 }
 .create{
@@ -120,7 +151,7 @@
     }
   }
   h2{
-    font-size: 16px;
+    font-size: 18px;
   }
   &-button{
     background: #333;

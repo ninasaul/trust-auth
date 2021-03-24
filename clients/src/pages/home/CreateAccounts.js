@@ -12,11 +12,11 @@ export default function CreateAccounts(props) {
     {
       url: `${baseUrl}/serviceprovider`,
       method: 'post',
-      body: {
+      body: JSON.stringify({
         accesstoken,
         spname,
         email,
-      },
+      }),
     },
     {
       manual: true,

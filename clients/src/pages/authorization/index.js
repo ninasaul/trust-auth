@@ -63,20 +63,28 @@ export default function AuthorizationPage(props) {
       })
   return (
     <div className="column">
-      <div>{error && <ErrorAlert error={error} />}</div>
-      <OAuth2Login
-        authorizationUrl={authorizationUrl}
-        clientId={clientId}
-        clientSecret={clientSecret}
-        redirectUri={redirectUri}
-        responseType="code"
-        scope="openid intertrust_platform"
-        state="ea6f652c-ae02-4863-ac92-df6ee68491d6"
-        buttonText="Auth code login"
-        onSuccess={onSuccess}
-        onFailure={setError}
-      />
-      <div>{accessToken && <p> accessToken: {accessToken} </p>}</div>
+      <div className="login">
+        <div>{error && <ErrorAlert error={error} />}</div>
+        <h2>
+          <i className="logo ico-briefcase" />
+          <span>reporting express</span>
+        </h2>
+        <OAuth2Login
+          authorizationUrl={authorizationUrl}
+          clientId={clientId}
+          clientSecret={clientSecret}
+          redirectUri={redirectUri}
+          responseType="code"
+          scope="openid intertrust_platform"
+          state="ea6f652c-ae02-4863-ac92-df6ee68491d6"
+          buttonText="Auth code login"
+          onSuccess={onSuccess}
+          onFailure={setError}
+        >
+          sign in with Intertrust platform
+        </OAuth2Login>
+        <div>{accessToken && <p> accessToken: {accessToken} </p>}</div>
+      </div>
     </div>
   )
 }
