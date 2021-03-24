@@ -49,7 +49,7 @@ export default function CreateAccounts(props) {
         </div>
         <button className="create-button" onClick={loading ? null : run}>
           {loading ? (
-            <Loading width={18} height={18} text="Createing" color="#fff" />
+            <Loading size={16} text="Createing" color="#fff" />
           ) : (
             'New Accounts'
           )}

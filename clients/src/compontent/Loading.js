@@ -14,14 +14,18 @@ const LoaderBox = styled.div`
   align-items: center;
   justify-content: center;
 `
+const TextLoading = styled.div`
+  margin-left: 5px;
+`
+
 export default function Loading(props) {
-  const {children, color = '#333', text = null, ...rest} = props
+  const {children, color = '#333', text = null, size = 18, ...rest} = props
   return (
     <LoaderBox {...rest}>
-      <Loader style={{color}} className="ico-loader">
+      <Loader style={{color, fontSize: size}} className="ico-loader">
         {children}
       </Loader>
-      {text}
+      {text && <TextLoading>{text}</TextLoading>}
     </LoaderBox>
   )
 }
