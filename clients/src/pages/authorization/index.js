@@ -15,7 +15,7 @@ import {
 } from '../../settings-code'
 
 export default function AuthorizationPage(props) {
-  const history = useHistory()
+  const historys = useHistory()
   // const [accessToken, setAccessToken] = useState(null)
   const [error, setError] = useState(null)
   const [groups, setGroups] = useState(null)
@@ -36,16 +36,12 @@ export default function AuthorizationPage(props) {
       }).toString(),
     })
       .then(res => {
-        console.log(props)
+        console.log(res)
         return res.json()
       })
       .then(data => {
-        if (data.access_token) {
-          history.replace({
-            pathname: '/',
-          })
-          setAccessToken(data.access_token)
-        }
+        props.onSuccess(data.access_token)
+        setAccessToken(data.access_token)
         return data
       })
       .then(data => {
@@ -61,6 +57,9 @@ export default function AuthorizationPage(props) {
       .then(data2 => {
         console.log(data2)
         setGroups(data2)
+      })
+      .catch(err => {
+        console.log(err)
       })
   return (
     <div className="column">

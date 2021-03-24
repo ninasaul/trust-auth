@@ -1,6 +1,5 @@
 import React, {Component} from 'react'
 import PropTypes from 'prop-types'
-import {Redirect} from 'react-router-dom'
 
 import PopupWindow from './PopupWindow'
 import {toQuery} from './utils'
@@ -74,11 +73,11 @@ class OAuth2Login extends Component {
   }
 
   onSuccess(data) {
+    // debugger
     const {responseType, onSuccess} = this.props
     const responseKey = responseTypeDataKeys[responseType]
     if (!data[responseKey]) {
       console.error('received data', data)
-
       return this.onFailure(
         new Error(`'${responseKey}' not found in received data`),
       )
@@ -89,6 +88,7 @@ class OAuth2Login extends Component {
 
   onFailure(error) {
     const {onFailure} = this.props
+    console.log(error)
     onFailure(error)
   }
 

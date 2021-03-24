@@ -29,11 +29,16 @@
 }
 .auto-button{
   width: 200px;
-  height: 32px;
+  height: 40px;
+  border-radius: 5px;
   background: #222;
   color: #fff;
   border: none;
   outline: none;
+  cursor: pointer;
+  &:hover{
+    background: #444;
+  }
 }
 .t {
   &-head {
