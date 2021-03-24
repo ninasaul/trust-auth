@@ -15,7 +15,10 @@ export default function Home() {
   return (
     <Fragment>
       <div className="t-head">
-        <h2>Reporting Express</h2>
+        <h2>
+          <div className="logo ico-bar-chart" />
+          Reporting Express
+        </h2>
         <div className="t-head-container">Conetent Aggregator</div>
         <div className="user">
           Admmin

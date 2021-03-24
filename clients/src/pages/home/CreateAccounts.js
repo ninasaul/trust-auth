@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import {useRequest, useLocalStorageState} from 'ahooks'
 import useGlobal from '../../hooks/useGlobal'
+import Loading from '../../compontent/Loading'
 
 export default function CreateAccounts(props) {
   const [accesstoken] = useLocalStorageState('accessToken')
@@ -27,7 +28,7 @@ export default function CreateAccounts(props) {
     <div className="mask">
       <div className="create">
         <h2>New Service Provider</h2>
-        <div className="close ico-x" onClose={() => props.onClose(false)} />
+        <div className="close ico-x" onClick={() => props.onClose(false)} />
         <div className="item tip">
           DB can be PostgreSQL / MySQL / SQL Server/ AWS Redshift / AWS Athena /
           ....
@@ -46,8 +47,12 @@ export default function CreateAccounts(props) {
             onChange={e => setEmail(e.target.value)}
           />
         </div>
-        <button className="create-button" onClick={run}>
-          New Accounts
+        <button className="create-button" onClick={loading ? null : run}>
+          {loading ? (
+            <Loading width={18} height={18} text="Createing" color="#fff" />
+          ) : (
+            'New Accounts'
+          )}
         </button>
       </div>
     </div>

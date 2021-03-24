@@ -66,8 +66,8 @@ export default function AuthorizationPage(props) {
       <div className="login">
         <div>{error && <ErrorAlert error={error} />}</div>
         <h2>
-          <i className="logo ico-briefcase" />
-          <span>reporting express</span>
+          <i className="logo ico-bar-chart" />
+          <span>Reporting Express</span>
         </h2>
         <OAuth2Login
           authorizationUrl={authorizationUrl}

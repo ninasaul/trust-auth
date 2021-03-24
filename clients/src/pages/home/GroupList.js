@@ -2,6 +2,7 @@ import React, {useState} from 'react'
 import {useRequest, useLocalStorageState} from 'ahooks'
 import useGlobal from '../../hooks/useGlobal'
 import Pagination from 'rc-pagination'
+import Loading from '../../compontent/Loading'
 
 export default function GroupList() {
   const [accessToken] = useLocalStorageState('accessToken')
@@ -25,28 +26,33 @@ export default function GroupList() {
   const pageChange = e => {
     console.log(e)
   }
+
   const [current, setCurrent] = useState(1)
   return (
     <div className="group">
       <h2 className="group-title">Service Providers</h2>
-      <div className="group-list">
-        {data &&
-          data.map((item, index) => (
-            <div className="group-item" key={index}>
-              {item.name}
+      {loading ? (
+        <Loading style={{height: 300}} />
+      ) : (
+        <div className="group-list">
+          {data &&
+            data.map((item, index) => (
+              <div className="group-item" key={index}>
+                {item.name}
+              </div>
+            ))}
+          {data && (
+            <div className="page">
+              <Pagination
+                defaultPageSize={10}
+                onChange={setCurrent}
+                total={data.length}
+                locale="en"
+              />
             </div>
-          ))}
-        {data && (
-          <div className="page">
-            <Pagination
-              defaultPageSize={10}
-              onChange={setCurrent}
-              total={data.length}
-              locale="en"
-            />
-          </div>
-        )}
-      </div>
+          )}
+        </div>
+      )}
     </div>
   )
 }
