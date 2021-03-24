@@ -1,14 +1,15 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import {useRequest, useLocalStorageState} from 'ahooks'
 import useGlobal from '../../hooks/useGlobal'
 import Pagination from 'rc-pagination'
 import Loading from '../../compontent/Loading'
 
-export default function GroupList() {
+export default function GroupList(props) {
   const [accessToken] = useLocalStorageState('accessToken')
-  const {baseUrl} = useGlobal()
+  const {baseUrl, resList} = useGlobal()
   const [current, setCurrent] = useState(1)
-  const {data, error, loading} = useRequest(
+  console.log(resList)
+  const {data, error, loading, run} = useRequest(
     `${baseUrl}/groups?accesstoken=${accessToken}`,
     {
       formatResult: res => {
@@ -17,18 +18,18 @@ export default function GroupList() {
         for (let i in res) {
           result.push({id: i, name: res[i]})
         }
-        console.log(result)
         return result
-        //return Object.values(res).map((val,index) => { name:val,id:key[index]})
       },
     },
   )
-
+  useEffect(() => {
+    run()
+  }, [resList])
   return (
     <div className="group">
       <h2 className="group-title">Service Providers</h2>
       {loading ? (
-        <Loading style={{height: 300}} />
+        <Loading text="Loading" style={{height: 300}} />
       ) : (
         <div className="group-list">
           {data.length &&

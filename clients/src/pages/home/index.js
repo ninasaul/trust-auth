@@ -28,6 +28,7 @@ export default function Home() {
       <div className="t-container">
         <div className="t-side">
           <div className="create-button" onClick={() => setCreateStatus(true)}>
+            <i className="ico-plus" style={{marginRight: 4}} />
             Create New Service Provider
           </div>
         </div>

@@ -4,6 +4,7 @@ import * as config from '../settings-code'
 
 const ininState = {
   accessToken: null,
+  resList: 0,
   ...config,
 }
 

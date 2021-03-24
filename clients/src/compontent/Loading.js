@@ -16,6 +16,8 @@ const LoaderBox = styled.div`
 `
 const TextLoading = styled.div`
   margin-left: 5px;
+  font-size: 12px;
+  opacity: 0.8;
 `
 
 export default function Loading(props) {

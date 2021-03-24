@@ -5,7 +5,7 @@ import Loading from '../../compontent/Loading'
 
 export default function CreateAccounts(props) {
   const [accesstoken] = useLocalStorageState('accessToken')
-  const {baseUrl} = useGlobal()
+  const {baseUrl, setState, resList} = useGlobal()
   const [spname, setSpName] = useState('')
   const [email, setEmail] = useState('')
 
@@ -21,6 +21,10 @@ export default function CreateAccounts(props) {
     },
     {
       manual: true,
+      onSuccess: e => {
+        props.onClose(false)
+        setState({resList: resList + 1})
+      },
     },
   )
 
