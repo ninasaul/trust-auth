@@ -151,9 +151,10 @@ html{
     font-size: 16px;
   }
   &-list{
-    border-radius:5px;
+    border-radius:8px;
     border: 1px solid #f4f4f4;
     overflow: hidden;
+    box-shadow: 0 12px 62px rgba( 132, 132, 132, .1);
   }
   &-item{
     padding:15px 10px;
