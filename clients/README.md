@@ -1,6 +1,4 @@
-# classzz website
-
-## Building and running on localhost
+# Clients
 
 First install dependencies:
 
